@@ -55,4 +55,21 @@ describe(Artist) do
       expect(Artist.find(test_artist.id())).to(eq(test_artist))
     end
   end
+
+  describe("#list_CDs") do
+    it("lists all the CD's in an artists array") do
+      test_artist = Artist.new("Black Sabbath")
+      test_artist.save()
+      expect(test_artist.list_CDs()).to(eq([]))
+    end
+  end
+
+  describe("#add_CD") do
+    it("adds a CD to an artists CD array") do
+      test_artist = Artist.new("Black Sabbath")
+      test_CD = CD.new("Paranoid")
+      test_artist.add_CD(test_CD)
+      expect(test_artist.list_CDs()).to(eq([test_CD]))
+    end
+  end
 end

@@ -4,6 +4,7 @@ class Artist
   define_method(:initialize) do |name|
     @name = name
     @id = @@Artists.length().+(1)
+    @CDs = []
   end
 
   define_method(:name) do
@@ -34,5 +35,13 @@ class Artist
       end
     end
     found_artist
+  end
+
+  define_method(:list_CDs) do
+    @CDs
+  end
+
+  define_method(:add_CD) do |disk|
+    @CDs.push(disk)
   end
 end
