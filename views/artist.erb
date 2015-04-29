@@ -1,0 +1,10 @@
+<h3>Here are all the CD's by this artist:</h3>
+
+<ul>
+  <% @artist.list_CDs().each() do |disk| %>
+  <li><%= disk.name() %></li>
+  <% end %>
+</ul>
+
+<a href="/artists/<%= @artist.id%>/artists/new">Add a CD</a>
+<a href="/">Return to Main Page</a>

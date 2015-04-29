@@ -21,5 +21,26 @@ post('/artists') do
   name = params.fetch('name')
   Artist.new(name).save()
   @artists = Artist.all()
-  erb(:success)
+  erb(:successArtist)
+end
+
+get('/artists/:id') do
+  @artist = Artist.find(params.fetch('id').to_i())
+  erb(:artist)
+end
+
+get('/CDs/new') do
+  erb(:CDs_form)
+end
+
+get('/CDs') do
+  @CDs = CD.all()
+  erb(:CDs)
+end
+
+post('/CDs') do
+  name = params.fetch('name')
+  CD.new(name).save()
+  @CDs = CD.all()
+  erb(:successCD)
 end
