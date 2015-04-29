@@ -72,4 +72,14 @@ describe(Artist) do
       expect(test_artist.list_CDs()).to(eq([test_CD]))
     end
   end
+
+  describe(".find_name") do
+    it("finds an artist based on name") do
+      test_artist = Artist.new("Black Sabbath")
+      test_artist.save()
+      test_artist2 = Artist.new("Juas Priest")
+      test_artist2.save()
+      expect(Artist.find_name(test_artist.name())).to(eq(test_artist))
+    end
+  end
 end

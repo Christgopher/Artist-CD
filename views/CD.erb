@@ -1,0 +1,14 @@
+<h1>Which artist is <%= @CD.name() %> by?</h1>
+
+<ul>
+  <% @artists.each() do |artist| %>
+  <li><%= artist.name() %></li>
+  <% end %>
+</ul>
+
+<form action="/CD_add" method="post">
+  <input id='CD_id' name='CD_id' type='hidden' value='<%= @CD.id() %>'>
+  <label for="name">Artist's name:</label>
+  <input id="name" name="name" type="text">
+  <button type="submit">Add Artist</button>
+</form>

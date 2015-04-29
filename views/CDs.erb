@@ -1,6 +1,6 @@
 <h1>Here are your CDs!</h1>
 <ul>
   <% @CDs.each() do |disk| %>
-  <li><%= disk.name() %></a></li>
+  <li><a href="/CDs/<%= disk.id() %>"><%= disk.name() %></a></li>
   <% end %>
 </ul>

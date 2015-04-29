@@ -44,4 +44,14 @@ class Artist
   define_method(:add_CD) do |disk|
     @CDs.push(disk)
   end
+
+  define_singleton_method(:find_name) do |idetf|
+    found_artist = nil
+    @@Artists.each() do |artist|
+      if artist.name().eql?(idetf)
+        found_artist = artist
+      end
+    end
+    found_artist
+  end
 end

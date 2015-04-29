@@ -44,3 +44,17 @@ post('/CDs') do
   @CDs = CD.all()
   erb(:successCD)
 end
+
+get('/CDs/:id') do
+  @CD = CD.find(params.fetch('id').to_i())
+  @artists = Artist.all()
+  erb(:CD)
+end
+
+post('/CD_add') do
+  name = params.fetch('name')
+  @artist = Artist.find_name(name)
+  @CD = CD.find(params.fetch('CD_id').to_i())
+  @artist.add_CD(@CD)
+  erb(:successCD_add)
+end
